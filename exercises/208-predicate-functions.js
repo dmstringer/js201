@@ -20,7 +20,13 @@
 // isVowel('A') --> true
 // isVowel(99) --> false
 // isVowel({e: 'Elephant'}) --> false
-
+function isVowel (myChar) {
+    if (myChar === 'a', 'e', 'i', 'o', 'u') {
+        return true
+    } else {
+        return false
+    }
+}
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
