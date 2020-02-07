@@ -34,7 +34,6 @@ function totalAmount (bill, service) {
     return bill + tipAmount(bill, service);
 }
 
-
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function "splitAmount" that takes a bill amount, the level of service,
 // and the number of people to split the bill between. It should return the final

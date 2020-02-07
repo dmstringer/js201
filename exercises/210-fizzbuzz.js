@@ -9,3 +9,22 @@
 // Examples:
 // fizzbuzz(3) --> '..fizz'
 // fizzbuzz(15) --> '..fizz.buzzfizz..fizzbuzz.fizz..fizzbuzz'
+function fizzbuzz (inputNum) {
+    var fbstring = '';
+    for (i = 1; i <= inputNum; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            fbstring = fbstring + 'fizzbuzz'
+        } else {
+            if (i % 5 === 0) {
+                fbstring = fbstring + 'buzz'
+            } else {
+                if (i % 3 === 0) {
+                    fbstring = fbstring + 'fizz'
+                } else {
+                    fbstring = fbstring + '.'
+                }
+            }
+        }
+    }
+    return fbstring
+}

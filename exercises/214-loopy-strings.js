@@ -7,7 +7,13 @@
 //
 // Example:
 // reverse("skoob") --> "books"
-
+function reverse (aString) {
+    let newStr = ''
+    for (let i = ((aString.length)-1); i >= 0; i--) {
+        newStr = newStr + aString.charAt(i)
+    }
+    return newStr
+}
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -17,7 +23,16 @@
 //
 // Example:
 // findLongestWord('a book full of dogs') --> 'book'
-
+function findLongestWord (theString) {
+    let myArray = theString.split(' ');
+    let strToReturn = myArray[0]
+    for (let i = 1; i < myArray.length; i++) {
+        if (myArray[i].length > strToReturn.length) {
+            strToReturn = myArray[i]
+        }
+    }
+    return strToReturn
+}
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -28,7 +43,29 @@
 // Example:
 // nicer('mom get the heck in here and bring me a darn sandwich.')
 // > 'mom get the in here and bring me a sandwich.'
+function nicer (inSent) {
+    const badWords = ['heck', 'darn', 'dang', 'crappy']
+    let myArray = inSent.split(' ');
+    let arrayWordBad = false;
+    let strToReturn = '';
 
+    for (let i = 0; i < myArray.length; i++) {
+        arrayWordBad = false        
+        for (let j = 0; j < 4; j++) {
+            if (myArray[i] === badWords[j]) {
+                arrayWordBad = true
+            }
+        }
+        if (arrayWordBad === false) {
+            if (i < myArray.length - 1) {
+                strToReturn = strToReturn + myArray[i] + ' ';
+            } else {
+                strToReturn = strToReturn + myArray[i];
+            }
+        }
+    }
+    return strToReturn
+}
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -39,7 +76,21 @@
 // Examples:
 // capitalizeAll('hello world') --> 'Hello World'
 // capitalizeAll('every day is like sunday') --> 'Every Day Is Like Sunday'
-
+function capitalizeAll (aSent) {
+    let myArray = aSent.split(' ');
+    let strToReturn = ''
+    for (let i = 0; i < myArray.length; i++) {
+        let firstChar = myArray[i].charAt(0)
+        let firstCharUp = firstChar.toUpperCase()
+        let newWord = myArray[i].replace(firstChar, firstCharUp)
+        if (i < myArray.length - 1) {
+            strToReturn = strToReturn + newWord + ' ';
+        } else {
+            strToReturn = strToReturn + newWord;
+        }
+    }
+    return strToReturn
+}
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -52,3 +103,22 @@
 // split('a-b-c', '-') --> ['a', 'b', 'c']
 // split('APPLExxBANANAxxCHERRY', 'xx') --> ['APPLE', 'BANANA', 'CHERRY']
 // split('xyz', 'r') --> ['xyz']
+function split (aString, aDelim) {
+    let strLength = aString.length
+    let delimLength = aDelim.length
+    let arrayToReturn = []
+    let numCharIn = 0
+    let theSlice = ''
+    
+    while (numCharIn < strLength) {
+        if (aString.indexOf(aDelim,numCharIn) === -1) {
+            theSlice = aString.slice(numCharIn, strLength)
+        } else {
+            theSlice = aString.slice(numCharIn, aString.indexOf(aDelim,numCharIn))
+        }
+        arrayToReturn.push(theSlice)
+        numCharIn = numCharIn + theSlice.length + delimLength
+
+    }
+    return arrayToReturn
+}
