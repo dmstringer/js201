@@ -84,15 +84,17 @@ function makeBanner (someText) {
         someTextLen = someText.length
     }
     for (let i = 0; i < 3; i++) {
+
         if (i === 0 || i === 2) {
             //write the top and bottom
-            for (let i = 0; i < (someTextLen + 4); i++) {
+            for (let j = 0; j < (someTextLen + 4); j++) {
                 strToReturn = strToReturn + '*'
             }
         } else {
             //write the middle with text
-            strToReturn = '* ' + someText + ' *'
+            strToReturn = strToReturn + '* ' + someText + ' *'
         }
+
         if (i < 2) {
             strToReturn = strToReturn + '\n'
         }
