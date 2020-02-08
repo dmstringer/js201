@@ -8,3 +8,21 @@
 // 'Cheeeeese'
 // > longLongVowels('Man')
 // 'Man'
+function longLongVowels (aStr) {
+    let strToReturn = ''
+    for (let i = 0; i < aStr.length; i++) {
+        if (aStr.charAt(i) === 'a' || 'e' || 'i' || 'o' || 'u' || 'A' || 'E' || 'I' || 'O' || 'U') {
+            if (aStr.charAt(i) === aStr.charAt(i+1)) {
+                for (let j = 0; j < 5; j++) {
+                    strToReturn = strToReturn + aStr.charAt(i)
+                }
+                i++
+            } else {
+                strToReturn = strToReturn + aStr.charAt(i)
+            }
+        } else {
+            strToReturn = strToReturn + aStr.charAt(i)
+        }
+    }
+    return strToReturn
+}
