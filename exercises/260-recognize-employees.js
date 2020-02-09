@@ -18,23 +18,14 @@
 function recognizeEmployees (arrNames, arrEmpMonth) {
 
     function checkEmp (empName) {
-        
+        if (arrEmpMonth.includes(empName)) {
+            return ('Outstanding job, ' + empName + '!') 
+        }else {
+            return ('Great job, ' + empName + '!')
+        }
     }
 
     let arrayToReturn = arrNames.map(checkEmp)
-
-    //for (let i = 0; i < arrNames.length; i++) {
-    //    for (let j = 0; j < arrEmpMonth.length; j++) {
-    //        if (arrNames[i] === arrEmpMonth[j]) {
-    //            arrayToReturn[i] = 'Outstanding job, ' + arrNames[i] + '!'
-    //            break
-    //        } else {
-    //            arrayToReturn[i] = 'Great job, ' + arrNames[i] + '!'
-    //            break
-    //        }
-    //    }
-    //}
-
-    console.log(arrayToReturn)
+    
     return arrayToReturn
 }

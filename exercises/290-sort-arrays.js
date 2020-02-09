@@ -7,7 +7,10 @@
 // Examples:
 // alphaSort(['b', 'a', 'c'])
 // > ['a', 'b', 'c']
-
+function alphaSort (theArray) {
+    let sortedArray = theArray.sort()
+    return sortedArray
+}
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -17,7 +20,22 @@
 // Examples:
 // strLengthSort(['Apple', 'Banana', 'Cherry'])
 // > ['Apple', 'Cherry', 'Banana']
+function strLengthSort (strArray) {
 
+    function compareStrings (passedStringOne, passedStringTwo) {
+        if (passedStringOne.length < passedStringTwo.length) {
+            return -1
+        } else if (passedStringOne.length > passedStringTwo.length) {
+            return 1
+        } else {
+            return 0
+        }
+    }
+
+    let sortedArray = strArray.sort(compareStrings)
+    return sortedArray
+
+}
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -38,3 +56,25 @@
 //   [4, 5]
 // ])
 // > [[2], [4, 5], [9, 1, 9]]
+function sumSort (theArrOfArrays) {
+
+    function compareArrays (passedArrayOne, passedArrayTwo) {
+        let sumdArrayOne = passedArrayOne.reduce(function (accumulator, currentValue) {
+            return accumulator + currentValue
+            }, 0)
+        let sumdArrayTwo = passedArrayTwo.reduce(function (accumulator, currentValue) {
+            return accumulator + currentValue
+            }, 0)
+
+        if (sumdArrayOne < sumdArrayTwo) {
+            return -1
+        } else if (sumdArrayOne > sumdArrayTwo) {
+            return 1
+        } else {
+            return 0
+        }
+    }
+
+    let sortedArray = theArrOfArrays.sort(compareArrays)
+    return sortedArray
+}
